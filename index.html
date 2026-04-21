@@ -15,11 +15,11 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            line-height: 1.5;
+            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* HEADER / LOGO CON EFECTO PORTAL */
+        /* HERO SECTION */
         .hero {
             height: 100vh;
             display: flex;
@@ -41,7 +41,6 @@
             height: 400px; 
         }
 
-        /* Aura circular - Respiración constante */
         .aura {
             position: absolute;
             width: 350px;
@@ -50,26 +49,14 @@
             background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
             animation: respiracionLenta 4s infinite ease-in-out;
             z-index: 1;
-            pointer-events: none;
         }
 
         .logo {
             width: 300px; 
             position: relative;
             z-index: 2;
-            filter: brightness(0) invert(0.75); 
+            filter: brightness(0) invert(0.9); /* Logo más brillante de entrada */
             transition: 0.4s ease;
-        }
-
-        /* Hover: Pulso agudo */
-        .logo-wrapper:hover .aura {
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
-            animation: pulsoAgudo 0.15s infinite alternate ease-in-out;
-        }
-
-        .logo-wrapper:hover .logo {
-            filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(0, 255, 255, 0.6));
-            transform: scale(1.05);
         }
 
         @keyframes respiracionLenta {
@@ -77,148 +64,147 @@
             50% { transform: scale(1.1); opacity: 0.8; }
         }
 
-        @keyframes pulsoAgudo {
-            0% { transform: scale(1.05); }
-            100% { transform: scale(1.2); }
-        }
-
         .tagline {
-            font-size: 1.2rem;
-            letter-spacing: 8px;
+            font-size: 1rem;
+            letter-spacing: 10px;
             text-transform: uppercase;
-            color: #E0E0E0; /* Gris muy claro para mayor impacto */
+            color: #00FFFF; /* Cian para destacar la categoría */
             font-weight: 700;
-            position: relative;
-            z-index: 3;
-            margin-top: -30px; 
+            margin-top: -20px; 
         }
 
-        /* MANIFIESTO */
+        /* MANIFIESTO - EL GRAN CAMBIO */
         .statement-container {
             width: 90%;
-            max-width: 1200px;
-            text-align: center;
-            padding: 100px 0 150px;
+            max-width: 1000px;
+            text-align: left; /* Alineado a la izquierda se siente más editorial y premium */
+            padding: 150px 0;
+            border-left: 2px solid #00FFFF; /* Una línea sutil de acento */
+            padding-left: 40px;
+            margin: 50px 0;
         }
 
         .statement {
             font-size: 2.8rem;
-            color: #888; /* Un poco más claro que el anterior */
+            color: #666; 
             font-weight: 300;
-            line-height: 1.2;
+            line-height: 1.1;
+            transition: 0.5s;
         }
 
         .statement b {
-            color: #FFFFFF; /* Texto destacado en blanco puro */
-            font-weight: 600;
+            color: #FFFFFF; /* Blanco puro para que destaque el compromiso */
+            font-weight: 500;
+            display: block; /* Lo hace bajar para darle más aire */
+            margin-top: 20px;
         }
 
-        /* SECCIÓN CAPACIDADES */
+        /* SECCIONES Y ETIQUETAS */
         .section-label {
             width: 100%;
             max-width: 1200px;
-            padding: 30px 20px;
-            font-size: 0.9rem;
-            letter-spacing: 4px;
+            padding: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            color: #666; /* Antes era #333 (muy oscuro), ahora es legible */
-            border-bottom: 1px solid #333;
+            color: #444;
+            border-top: 1px solid #222;
+            margin-top: 80px;
         }
 
         .capabilities {
             width: 100%;
             max-width: 1200px;
-            padding: 80px 20px 100px;
+            padding: 60px 20px 120px;
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
         }
 
         .capability-text {
-            font-size: 1.6rem;
-            color: #D0D0D0; /* Gris claro */
+            font-size: 1.8rem;
+            color: #FFFFFF; /* Texto principal en blanco */
             font-weight: 400;
+            line-height: 1.3;
         }
 
         .capability-list {
             list-style: none;
             font-size: 1.1rem;
-            color: #999; /* Antes era #555, ahora se lee bien */
+            color: #888;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 20px;
         }
 
-        /* SECCIÓN DE CASOS */
+        .capability-list li {
+            border-bottom: 1px solid #1a1a1a;
+            padding-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .capability-list li:hover {
+            color: #00FFFF;
+            padding-left: 10px;
+        }
+
+        /* CASOS */
         .grid {
             width: 100%;
             max-width: 1200px;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-            padding: 0 20px 100px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            padding: 40px 20px 150px;
         }
 
         .item {
             position: relative;
-            height: 450px;
-            overflow: hidden;
+            height: 500px;
+            background-color: #111;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             padding: 40px;
-            background-color: #050505;
             text-decoration: none;
+            transition: 0.4s;
         }
+
+        .item:hover { transform: translateY(-10px); }
 
         .item img {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            z-index: 1;
-            opacity: 0.4;
-            transition: 0.5s ease;
+            opacity: 0.3;
+            transition: 0.5s;
         }
 
-        .item:hover img { opacity: 0.6; }
+        .item:hover img { opacity: 0.5; }
 
         .item-content { position: relative; z-index: 2; }
-
-        .item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #AAA; margin-bottom: 10px; }
-
-        .item p { font-size: 1.4rem; color: #FFFFFF; font-weight: 600; line-height: 1.2; }
+        .item h3 { font-size: 0.7rem; letter-spacing: 3px; color: #00FFFF; margin-bottom: 10px; }
+        .item p { font-size: 1.6rem; color: #FFF; font-weight: 600; }
 
         /* CONTACTO */
-        .contact { padding: 150px 20px; text-align: center; }
-
+        .contact { padding: 150px 20px; text-align: center; background: #050505; width: 100%; }
         .contact a {
             color: #FFFFFF;
             text-decoration: none;
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            border-bottom: 2px solid #444;
-            padding-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: 700;
+            border-bottom: 3px solid #00FFFF;
             transition: 0.4s;
         }
 
-        .contact a:hover { border-color: #00FFFF; color: #00FFFF; }
+        footer { padding: 60px; color: #333; font-size: 0.7rem; letter-spacing: 5px; }
 
-        footer { padding: 80px; color: #444; font-size: 0.7rem; letter-spacing: 6px; text-align: center; }
-
-        /* AJUSTES CELULAR */
         @media (max-width: 768px) {
-            .hero { height: auto; padding: 100px 20px; }
-            .logo-wrapper { height: 300px; }
-            .aura { width: 250px; height: 250px; }
-            .logo { width: 220px; }
-            .tagline { font-size: 0.9rem; margin-top: -10px; }
             .statement { font-size: 1.8rem; }
-            .capabilities { grid-template-columns: 1fr; padding-top: 40px; }
-            .grid { grid-template-columns: 1fr; } 
-            .item { height: 350px; }
+            .capabilities, .grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact a { font-size: 1.5rem; }
         }
-
     </style>
 </head>
 <body>
@@ -233,55 +219,46 @@
 
     <div class="statement-container">
         <p class="statement">
-            Somos el motor que hace que las cosas pasen. <br>
-            <b>Resolvemos lo estratégico y lo técnico para que cualquier proyecto, marca o idea funcione.</b>
+            Acompañamos tus proyectos desde la estrategia hasta la puesta en marcha.
+            <b>Resolvemos cada frente técnico y creativo para que tus ideas operen con precisión.</b>
         </p>
     </div>
 
     <div class="section-label">Capacidades</div>
     <div class="capabilities">
         <div class="capability-text">
-            Potenciamos nuestro trabajo con <b>nuevas tecnologias</b> para ampliar nuestra capacidad de ejecución. Integramos innovación y criterio profesional para cubrir cada etapa de tus desafíos.
+            Potenciamos nuestro trabajo con <b>nuevas tecnologías</b> para ampliar nuestra capacidad de ejecución. Integramos innovación y criterio profesional para cubrir cada etapa de tus desafíos.
         </div>
         <ul class="capability-list">
             <li>+ Estrategia de Marketing & Growth</li>
             <li>+ Identidad Visual & Branding Sistémico</li>
             <li>+ Registro Aéreo & Producción Inmobiliaria</li>
             <li>+ Gestión de Medios & Espacios Publicitarios</li>
-            <li>+ Automatización & Soluciones con IA</li>
+            <li>+ Automatización & Soluciones Avanzadas</li>
             <li>+ Lanzamientos de Producto & Activaciones</li>
         </ul>
     </div>
 
-    <div class="section-label">Han confiado en nosotros</div>
+    <div class="section-label">Proyectos</div>
     <section class="grid">
-        <div class="item">
+        <a href="#" class="item">
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Zapallar">
             <div class="item-content">
                 <h3>Consumo Masivo</h3>
                 <p>Lanzamiento de producto masivo en Zapallar.</p>
             </div>
-        </div>
-        
-        <div class="item">
+        </a>
+        <a href="#" class="item">
             <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80" alt="Papudo">
             <div class="item-content">
                 <h3>Gestión Municipal</h3>
-                <p>Nueva unidad de negocio para Municipalidad de Papudo: Venta de espacios publicitarios.</p>
+                <p>Venta de espacios publicitarios.</p>
             </div>
-        </div>
-
-        <div class="item">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Dreams">
-            <div class="item-content">
-                <h3>Hospitalidad & Gaming</h3>
-                <p>Asesoría de estrategia de marketing digital para Casinos y Hoteles Dreams.</p>
-            </div>
-        </div>
+        </a>
     </section>
 
     <section class="contact">
-        <p style="margin-bottom: 20px; color: #555; letter-spacing: 3px;">¿TIENES UN DESAFÍO?</p>
+        <p style="margin-bottom: 30px; color: #666; letter-spacing: 4px;">¿TIENES UN DESAFÍO?</p>
         <a href="mailto:contacto@estudiomarca.com">contacto@estudiomarca.com</a>
     </section>
 
