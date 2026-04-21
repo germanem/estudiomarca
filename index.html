@@ -38,7 +38,7 @@
             align-items: center;
             width: 100%;
             max-width: 500px;
-            height: 400px; /* Suficiente espacio para que respire */
+            height: 400px; 
         }
 
         /* Aura circular - Respiración constante */
@@ -86,11 +86,11 @@
             font-size: 1.2rem;
             letter-spacing: 8px;
             text-transform: uppercase;
-            color: #B0B0B0;
+            color: #E0E0E0; /* Gris muy claro para mayor impacto */
             font-weight: 700;
             position: relative;
             z-index: 3;
-            margin-top: -30px; /* Distancia controlada */
+            margin-top: -30px; 
         }
 
         /* MANIFIESTO */
@@ -103,13 +103,13 @@
 
         .statement {
             font-size: 2.8rem;
-            color: #777; 
+            color: #888; /* Un poco más claro que el anterior */
             font-weight: 300;
             line-height: 1.2;
         }
 
         .statement b {
-            color: #B0B0B0; 
+            color: #FFFFFF; /* Texto destacado en blanco puro */
             font-weight: 600;
         }
 
@@ -121,8 +121,8 @@
             font-size: 0.9rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: #333;
-            border-bottom: 1px solid #1a1a1a;
+            color: #666; /* Antes era #333 (muy oscuro), ahora es legible */
+            border-bottom: 1px solid #333;
         }
 
         .capabilities {
@@ -136,20 +136,20 @@
 
         .capability-text {
             font-size: 1.6rem;
-            color: #B0B0B0; 
+            color: #D0D0D0; /* Gris claro */
             font-weight: 400;
         }
 
         .capability-list {
             list-style: none;
             font-size: 1.1rem;
-            color: #555;
+            color: #999; /* Antes era #555, ahora se lee bien */
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        /* SECCIÓN DE CASOS - RESPONSIVE FORZADO */
+        /* SECCIÓN DE CASOS */
         .grid {
             width: 100%;
             max-width: 1200px;
@@ -185,26 +185,26 @@
 
         .item-content { position: relative; z-index: 2; }
 
-        .item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #777; margin-bottom: 10px; }
+        .item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #AAA; margin-bottom: 10px; }
 
-        .item p { font-size: 1.4rem; color: #B0B0B0; font-weight: 600; line-height: 1.2; }
+        .item p { font-size: 1.4rem; color: #FFFFFF; font-weight: 600; line-height: 1.2; }
 
         /* CONTACTO */
         .contact { padding: 150px 20px; text-align: center; }
 
         .contact a {
-            color: #B0B0B0;
+            color: #FFFFFF;
             text-decoration: none;
             font-size: 1.5rem;
             letter-spacing: 2px;
-            border-bottom: 2px solid #1a1a1a;
+            border-bottom: 2px solid #444;
             padding-bottom: 10px;
             transition: 0.4s;
         }
 
-        .contact a:hover { border-color: #444; color: #FFF; }
+        .contact a:hover { border-color: #00FFFF; color: #00FFFF; }
 
-        footer { padding: 80px; color: #1a1a1a; font-size: 0.7rem; letter-spacing: 6px; }
+        footer { padding: 80px; color: #444; font-size: 0.7rem; letter-spacing: 6px; text-align: center; }
 
         /* AJUSTES CELULAR */
         @media (max-width: 768px) {
@@ -215,7 +215,7 @@
             .tagline { font-size: 0.9rem; margin-top: -10px; }
             .statement { font-size: 1.8rem; }
             .capabilities { grid-template-columns: 1fr; padding-top: 40px; }
-            .grid { grid-template-columns: 1fr; } /* Asegura 1 columna y que aparezcan los 3 */
+            .grid { grid-template-columns: 1fr; } 
             .item { height: 350px; }
         }
 
@@ -281,7 +281,7 @@
     </section>
 
     <section class="contact">
-        <p style="margin-bottom: 20px; color: #222; letter-spacing: 3px;">¿TIENES UN DESAFÍO?</p>
+        <p style="margin-bottom: 20px; color: #555; letter-spacing: 3px;">¿TIENES UN DESAFÍO?</p>
         <a href="mailto:contacto@estudiomarca.com">contacto@estudiomarca.com</a>
     </section>
 
