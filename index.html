@@ -19,6 +19,7 @@
             overflow-x: hidden;
         }
 
+        /* HEADER / LOGO CON EFECTO PORTAL */
         .hero {
             height: 100vh;
             display: flex;
@@ -40,6 +41,7 @@
             height: 400px; 
         }
 
+        /* Aura circular - Respiración constante */
         .aura {
             position: absolute;
             width: 350px;
@@ -55,8 +57,14 @@
             width: 300px; 
             position: relative;
             z-index: 2;
-            filter: brightness(0) invert(0.8); /* Un poco más claro para que destaque */
+            filter: brightness(0) invert(0.75); 
             transition: 0.4s ease;
+        }
+
+        /* Hover: Pulso agudo */
+        .logo-wrapper:hover .aura {
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: pulsoAgudo 0.15s infinite alternate ease-in-out;
         }
 
         .logo-wrapper:hover .logo {
@@ -69,17 +77,23 @@
             50% { transform: scale(1.1); opacity: 0.8; }
         }
 
+        @keyframes pulsoAgudo {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.2); }
+        }
+
         .tagline {
             font-size: 1.2rem;
             letter-spacing: 8px;
             text-transform: uppercase;
-            color: #E0E0E0; 
+            color: #E0E0E0; /* Gris muy claro para mayor impacto */
             font-weight: 700;
             position: relative;
             z-index: 3;
             margin-top: -30px; 
         }
 
+        /* MANIFIESTO */
         .statement-container {
             width: 90%;
             max-width: 1200px;
@@ -89,16 +103,17 @@
 
         .statement {
             font-size: 2.8rem;
-            color: #888; 
+            color: #888; /* Un poco más claro que el anterior */
             font-weight: 300;
             line-height: 1.2;
         }
 
         .statement b {
-            color: #FFFFFF; 
+            color: #FFFFFF; /* Texto destacado en blanco puro */
             font-weight: 600;
         }
 
+        /* SECCIÓN CAPACIDADES */
         .section-label {
             width: 100%;
             max-width: 1200px;
@@ -106,7 +121,7 @@
             font-size: 0.9rem;
             letter-spacing: 4px;
             text-transform: uppercase;
-            color: #888; /* Gris más claro para que se vea */
+            color: #666; /* Antes era #333 (muy oscuro), ahora es legible */
             border-bottom: 1px solid #333;
         }
 
@@ -121,19 +136,20 @@
 
         .capability-text {
             font-size: 1.6rem;
-            color: #D0D0D0; 
+            color: #D0D0D0; /* Gris claro */
             font-weight: 400;
         }
 
         .capability-list {
             list-style: none;
             font-size: 1.1rem;
-            color: #999; 
+            color: #999; /* Antes era #555, ahora se lee bien */
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
+        /* SECCIÓN DE CASOS */
         .grid {
             width: 100%;
             max-width: 1200px;
@@ -165,11 +181,17 @@
             transition: 0.5s ease;
         }
 
+        .item:hover img { opacity: 0.6; }
+
         .item-content { position: relative; z-index: 2; }
-        .item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #BBB; margin-bottom: 10px; }
+
+        .item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #AAA; margin-bottom: 10px; }
+
         .item p { font-size: 1.4rem; color: #FFFFFF; font-weight: 600; line-height: 1.2; }
 
+        /* CONTACTO */
         .contact { padding: 150px 20px; text-align: center; }
+
         .contact a {
             color: #FFFFFF;
             text-decoration: none;
@@ -180,13 +202,23 @@
             transition: 0.4s;
         }
 
+        .contact a:hover { border-color: #00FFFF; color: #00FFFF; }
+
         footer { padding: 80px; color: #444; font-size: 0.7rem; letter-spacing: 6px; text-align: center; }
 
+        /* AJUSTES CELULAR */
         @media (max-width: 768px) {
             .hero { height: auto; padding: 100px 20px; }
-            .capabilities { grid-template-columns: 1fr; }
+            .logo-wrapper { height: 300px; }
+            .aura { width: 250px; height: 250px; }
+            .logo { width: 220px; }
+            .tagline { font-size: 0.9rem; margin-top: -10px; }
+            .statement { font-size: 1.8rem; }
+            .capabilities { grid-template-columns: 1fr; padding-top: 40px; }
             .grid { grid-template-columns: 1fr; } 
+            .item { height: 350px; }
         }
+
     </style>
 </head>
 <body>
@@ -201,27 +233,27 @@
 
     <div class="statement-container">
         <p class="statement">
-            Acompañamos tus proyectos desde la estrategia hasta la puesta en marcha. <br>
-            <b>Resolvemos cada frente técnico y creativo para que tus ideas operen con precisión.</b>
+            Somos el motor que hace que las cosas pasen. <br>
+            <b>Resolvemos lo estratégico y lo técnico para que cualquier proyecto, marca o idea funcione.</b>
         </p>
     </div>
 
     <div class="section-label">Capacidades</div>
     <div class="capabilities">
         <div class="capability-text">
-            Potenciamos nuestro trabajo con <b>nuevas tecnologías</b> para ampliar nuestra capacidad de ejecución. Integramos innovación y criterio profesional para cubrir cada etapa de tus desafíos.
+            Gracias al uso de herramientas de <b>Inteligencia Artificial</b>, nuestro espectro de desarrollo es amplio y sin límites técnicos. Integramos tecnología y criterio para cubrir cada etapa de la comunicación.
         </div>
         <ul class="capability-list">
             <li>+ Estrategia de Marketing & Growth</li>
             <li>+ Identidad Visual & Branding Sistémico</li>
             <li>+ Registro Aéreo & Producción Inmobiliaria</li>
             <li>+ Gestión de Medios & Espacios Publicitarios</li>
-            <li>+ Automatización & Soluciones Avanzadas</li>
+            <li>+ Automatización & Soluciones con IA</li>
             <li>+ Lanzamientos de Producto & Activaciones</li>
         </ul>
     </div>
 
-    <div class="section-label">Proyectos</div>
+    <div class="section-label">Han confiado en nosotros</div>
     <section class="grid">
         <div class="item">
             <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Zapallar">
@@ -235,7 +267,15 @@
             <img src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=800&q=80" alt="Papudo">
             <div class="item-content">
                 <h3>Gestión Municipal</h3>
-                <p>Venta de espacios publicitarios.</p>
+                <p>Nueva unidad de negocio para Municipalidad de Papudo: Venta de espacios publicitarios.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="Dreams">
+            <div class="item-content">
+                <h3>Hospitalidad & Gaming</h3>
+                <p>Asesoría de estrategia de marketing digital para Casinos y Hoteles Dreams.</p>
             </div>
         </div>
     </section>
