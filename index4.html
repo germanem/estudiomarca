@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Marca</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: #000000; 
+            color: #A0A0A0; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* HEADER / LOGO CON EFECTO PORTAL */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .logo-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            height: 400px; 
+        }
+
+        .aura {
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: respiracionLenta 4s infinite ease-in-out;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .logo {
+            width: 300px; 
+            position: relative;
+            z-index: 2;
+            filter: brightness(0) invert(0.75); 
+            transition: 0.4s ease;
+        }
+
+        .logo-wrapper:hover .aura {
+            background: radial-gradient(circle, rgba(0, 255, 255, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+            animation: pulsoAgudo 0.15s infinite alternate ease-in-out;
+        }
+
+        .logo-wrapper:hover .logo {
+            filter: brightness(0) invert(1) drop-shadow(0 0 20px rgba(0, 255, 255, 0.6));
+            transform: scale(1.05);
+        }
+
+        @keyframes respiracionLenta {
+            0%, 100% { transform: scale(0.8); opacity: 0.4; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes pulsoAgudo {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.2); }
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #E0E0E0; 
+            font-weight: 700;
+            position: relative;
+            z-index: 3;
+            margin-top: -30px; 
+        }
+
+        /* MANIFIESTO */
+        .statement-container {
+            width: 90%;
+            max-width: 1200px;
+            text-align: center;
+            padding: 100px 0 150px;
+        }
+
+        .statement {
+            font-size: 2.8rem;
+            color: #888; 
+            font-weight: 300;
+            line-height: 1.2;
+        }
+
+        .statement b {
+            color: #E0E0E0; 
+            font-weight: 600;
+        }
+
+        /* SECCIÓN CAPACIDADES */
+        .section-label {
+            width: 100%;
+            max-width: 1200px;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #666; 
+            border-bottom: 1px solid #333;
+        }
+
+        .capabilities {
+            width: 100%;
+            max-width: 1200px;
+            padding: 80px 20px 100px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+        }
+
+        .capability-text {
+            font-size: 1.5rem;
+            color: #D0D0D0; 
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .capability-list {
+            list-style: none;
+            font-size: 1rem; 
+            color: #999; 
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            white-space: nowrap; 
+        }
+
+        /* SECCIÓN DE CASOS - 3 NIVELES DE TEXTO */
+        .grid {
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            padding: 0 20px 100px;
+        }
+
+        .item {
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            background-color: #050505;
+            text-decoration: none;
+        }
+
+        .item img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.4;
+            transition: 0.5s ease;
+        }
+
+        .item:hover img { opacity: 0.6; }
+
+        .item-content { position: relative; z-index: 2; }
+
+        /* Nivel 1: Rubro */
+        .item h3 { font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase; color: #AAA; margin-bottom: 8px; }
+
+        /* Nivel 2: Cliente */
+        .item h4 { font-size: 1.5rem; color: #FFFFFF; font-weight: 600; margin-bottom: 4px; }
+
+        /* Nivel 3: Descripción */
+        .item p { font-size: 1.1rem; color: #999; font-weight: 400; line-height: 1.3; }
+
+        /* CONTACTO */
+        .contact { padding: 150px 20px; text-align: center; }
+
+        .contact a {
+            color: #E0E0E0; 
+            text-decoration: none;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #444;
+            padding-bottom: 10px;
+            transition: 0.4s;
+        }
+
+        .contact a:hover { border-color: #00FFFF; color: #00FFFF; }
+
+        footer { padding: 80px; color: #444; font-size: 0.7rem; letter-spacing: 6px; text-align: center; }
+
+        @media (max-width: 768px) {
+            .hero { height: auto; padding: 100px 20px; }
+            .logo-wrapper { height: 300px; }
+            .aura { width: 250px; height: 250px; }
+            .logo { width: 220px; }
+            .tagline { font-size: 0.9rem; margin-top: -10px; }
+            .statement { font-size: 1.8rem; }
+            .capabilities { grid-template-columns: 1fr; padding-top: 40px; }
+            .capability-list { white-space: normal; } 
+            .grid { grid-template-columns: 1fr; } 
+            .item { height: 350px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="logo-wrapper">
+            <div class="aura"></div>
+            <img src="logo.png" alt="Estudio Marca" class="logo">
+        </div>
+        <p class="tagline">AGENCIA + MARKETING</p>
+    </section>
+
+    <div class="statement-container">
+        <p class="statement">
+            Capacidad de análisis y puesta en marcha en un solo lugar. <br>
+            <b>Nos involucramos desde la consultoría hasta la ejecución final para activar nuevos desafíos de negocio.</b>
+        </p>
+    </div>
+
+    <div class="section-label">Capacidades</div>
+    <div class="capabilities">
+        <div class="capability-text">
+            Potenciamos nuestra capacidad de ejecución con <b>nuevas tecnologías</b> y criterio profesional.
+        </div>
+        <ul class="capability-list">
+            <li>+ Estrategia de Marketing & Growth (Digital & Presencial)</li>
+            <li>+ Identidad Visual & Branding Sistémico</li>
+            <li>+ Gestión de Medios & Desarrollo de Activos Publicitarios</li>
+            <li>+ Lanzamientos de Impacto & Activaciones de Marca</li>
+            <li>+ Automatización & Soluciones Avanzadas</li>
+        </ul>
+    </div>
+
+    <div class="section-label">Proyectos</div>
+    <section class="grid">
+
+        <div class="item">
+            <img src="papudo.jpg" alt="Gestión Municipal Papudo">
+            <div class="item-content">
+                <h3>Gestión Municipal</h3>
+                <h4>Ilustre Municipalidad de Papudo</h4>
+                <p>Desarrollo y puesta en marcha de nueva línea de negocio para la explotación de activos publicitarios municipales.</p>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="dreams.jpg" alt="Casinos y Hoteles Dreams">
+            <div class="item-content">
+                <h3>Hospitalidad & Gaming</h3>
+                <h4>Casinos y Hoteles Dreams</h4>
+                <p>Consultoría estratégica y diseño de funnel de conversión para optimizar la captación de marketing digital.</p>
+            </div>
+        </div>
+
+        <div class="item">
+            <img src="bark.jpg" alt="Lanzamiento Bark!">
+            <div class="item-content">
+                <h3>Consumo Masivo</h3>
+                <h4>Snack Bark!</h4>
+                <p>Activación de marca y muestreo de producto en puntos de alto tráfico en Zapallar durante la temporada estival.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="contact">
+        <p style="margin-bottom: 20px; color: #555; letter-spacing: 3px;">¿TIENES UN DESAFÍO?</p>
+        <a href="mailto:contacto@estudiomarca.com">contacto@estudiomarca.com</a>
+    </section>
+
+    <footer>ESTUDIO MARCA 2026</footer>
+
+</body>
+</html>
